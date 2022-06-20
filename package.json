@@ -1,0 +1,23 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "Decision3 CLI for deploying and managing secure enclaves",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "d3-cli": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli"
+  ],
+  "author": "Decision3",
+  "license": "ISC",
+  "dependencies": {
+    "@types/yargs": "^17.0.10",
+    "got": "^12.1.0",
+    "yargs": "^17.5.1"
+  }
+}
