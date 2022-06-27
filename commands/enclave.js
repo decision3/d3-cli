@@ -1,24 +1,35 @@
 import got from "got"
+import fs from "fs"
 import { get_url } from "./utils.js"
 
-export function version() {
-    got.get(get_url('version'), {responseType: 'json'})
-    .then(res => {
-      const response = res.body;
-      console.log(JSON.stringify({"Host server Nitro-CLI version": response.version},null,4));
-    })
-    .catch(err => {
-      console.log('Error: ', err.message);
-    });
+export async function configure(configFile) {
+    try {
+        var res = await got.post(get_url('enclave/configure'), {
+            json: JSON.parse(fs.readFileSync(configFile))
+        }).json()
+        console.log(res.response);
+     } catch (error) {
+        console.log(error.response.body);   
+        return error
+     }
 }
 
-export function describe() {
-    got.get(get_url('describe'), {responseType: 'json'})
-    .then(res => {
-      const response = res.body;
-      console.log(JSON.stringify({"Description": response.description},null,4));
-    })
-    .catch(err => {
-      console.log('Error: ', err.message);
-    });
+export async function deploy() {
+    try {
+        
+        await got.post(get_url('enclave/image'))
+        .json()
+        .then(res => console.log(res.response))
+
+        await got.post(get_url('enclave/build'))
+        .json()
+        .then(res => console.log(res.response))
+        
+        await got.post(get_url('enclave/run'))
+        .json()
+        .then(res => console.log(res.response))
+
+     } catch (error) {
+        return error;
+     }
 }
