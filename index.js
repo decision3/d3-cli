@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 import _yargs from 'yargs'
-import { configure, deploy } from './commands/enclave.js'
+import { configure, deploy, terminate } from './commands/enclave.js'
 import { hideBin } from 'yargs/helpers';
 const yargs = _yargs(hideBin(process.argv));
 
@@ -20,6 +20,12 @@ const argv = yargs
                     type: "boolean", 
                     demandOption: false
                 })
+                .option("t", {
+                    alias:"terminate", 
+                    describe: "Terminate enclave", 
+                    type: "boolean", 
+                    demandOption: false
+                })
                 .help(true)  
                 .argv;
 
@@ -30,4 +36,8 @@ if(argv.c){
 
 if(argv.d){
     deploy();
+}
+
+if(argv.t){
+    terminate();
 }
