@@ -20,6 +20,10 @@ export async function configure(configFile) {
         .then(res => {
             spinner.succeed(res.response);
         });
+
+        console.log("");
+        process.exit(0);
+        
      } catch (error) {
         console.log(error);   
         return error
@@ -59,6 +63,7 @@ export async function deploy() {
         .json()
         .then(res => spinner.succeed(res.response));
 
+        console.log("");
         process.exit(0);
 
      } catch (error) {
@@ -77,6 +82,7 @@ export async function terminate() {
         .json()
         .then(res => spinner.succeed(res.response+"  "))
 
+        console.log("");
         process.exit(0);
 
      } catch (error) {

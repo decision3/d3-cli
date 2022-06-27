@@ -5,12 +5,12 @@ import { configure, deploy, terminate } from './commands/enclave.js'
 import { hideBin } from 'yargs/helpers';
 const yargs = _yargs(hideBin(process.argv));
 
-const usage_text = "\nUsage: d3-cli [options] [commands]";
+const usage_text = "\nUsage: d3 [options] [commands]";
 const argv = yargs
                 .usage(usage_text)  
                 .option("c", {
                     alias:"config", 
-                    describe: "Configure dockerfile", 
+                    describe: "Configure container", 
                     type: "string", 
                     demandOption: false
                 })
@@ -28,6 +28,8 @@ const argv = yargs
                 })
                 .help(true)  
                 .argv;
+
+console.log("");
 
 // Process CLI arguments
 if(argv.c){
