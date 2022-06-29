@@ -4,15 +4,12 @@ import ora from 'ora';
 import fs from "fs"
 import path from "path"
 import { fileURLToPath } from 'url'
+import { PassThrough } from "stream";
 
 const spinner_type = 'arc';
 const spinner_indent = 1;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const config = JSON.parse(fs.readFileSync(__dirname+'/config.json'));
-
-export async function configure() {
+export async function configure(config) {
     try {
         var spinner = ora({
             text: 'Configuring container',
@@ -31,19 +28,19 @@ export async function configure() {
         process.exit(0);
 
      } catch (error) {
-        console.log(error);   
         return error
      }
 }
 
 export async function deploy() {
     try {
+        var image_endpoint = get_url('enclave/image');
         var spinner = ora({
             text: 'Creating container',
             spinner: spinner_type,
             indent: spinner_indent
         }).start();
-        await got.post(get_url('enclave/image'))
+        await got.post(image_endpoint)
         .json()
         .then(res => spinner.succeed(res.response+"  "))
         .then(() => {

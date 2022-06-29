@@ -41,7 +41,7 @@ if(argv.c){
     const __dirname = path.dirname(__filename);
     const config = fs.readFileSync(argv.c);
     fs.writeFileSync(__dirname+'/commands/config.json', JSON.stringify(JSON.parse(config)))
-    configure();
+    configure(JSON.parse(config));
 }
 
 if(argv.d){
