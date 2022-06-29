@@ -7,17 +7,17 @@
   "bin": {
     "d3": "index.js"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "keywords": [
     "cli"
   ],
   "author": "Decision3",
   "license": "ISC",
   "dependencies": {
+    "@types/node-fetch": "^2.6.2",
     "@types/yargs": "^17.0.10",
     "got": "^12.1.0",
+    "node-fetch": "^3.2.6",
     "ora": "^6.1.1",
     "yargs": "^17.5.1"
   }

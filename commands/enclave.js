@@ -1,12 +1,18 @@
 import got from "got"
-import fs from "fs"
 import { get_url } from "./utils.js"
 import ora from 'ora';
+import fs from "fs"
+import path from "path"
+import { fileURLToPath } from 'url'
 
 const spinner_type = 'arc';
 const spinner_indent = 1;
 
-export async function configure(configFile) {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const config = JSON.parse(fs.readFileSync(__dirname+'/config.json'));
+
+export async function configure() {
     try {
         var spinner = ora({
             text: 'Configuring container',
@@ -14,7 +20,7 @@ export async function configure(configFile) {
             indent: spinner_indent
         }).start();
         await got.post(get_url('enclave/configure'), {
-            json: JSON.parse(fs.readFileSync(configFile))
+            json: config
         })
         .json()
         .then(res => {
@@ -23,7 +29,7 @@ export async function configure(configFile) {
 
         console.log("");
         process.exit(0);
-        
+
      } catch (error) {
         console.log(error);   
         return error
