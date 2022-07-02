@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 import _yargs from 'yargs'
-import { configure, deploy, terminate } from './commands/enclave.js'
+import { configure, deploy, terminate, ls } from './commands/enclave.js'
 import { hideBin } from 'yargs/helpers';
 import fs from "fs"
 import path from "path"
@@ -30,6 +30,12 @@ const argv = yargs
                     type: "boolean", 
                     demandOption: false
                 })
+                .option("l", {
+                    alias:"list", 
+                    describe: "List enclave id", 
+                    type: "boolean", 
+                    demandOption: false
+                })
                 .help(true)  
                 .argv;
 
@@ -50,4 +56,8 @@ if(argv.d){
 
 if(argv.t){
     terminate();
+}
+
+if(argv.l){
+    ls();
 }

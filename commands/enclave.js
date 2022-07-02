@@ -74,6 +74,26 @@ export async function deploy() {
      }
 }
 
+export async function ls() {
+    try {
+        await got.get(get_url('enclave/'))
+        .json()
+        .then(res => {
+            if(res.response != 'null') {
+                console.log("Enclave ID: ", res.response);
+            } else {
+                console.log("No enclave found");
+            }
+        });
+
+        console.log("");
+        process.exit(0);
+
+     } catch (error) {
+        return error;
+     }
+}
+
 export async function terminate() {
     try {
         var spinner = ora({
