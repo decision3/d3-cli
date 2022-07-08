@@ -61,8 +61,19 @@ export async function deploy() {
                 indent: spinner_indent
             }).start()
         });
-        
+
         await got.post(get_url('enclave/run'))
+        .json()
+        .then(res => spinner.succeed(res.response))
+        .then(() => {
+            spinner = ora({
+                text: 'Starting proxy',
+                spinner: spinner_type,
+                indent: spinner_indent
+            }).start()
+        });
+        
+        await got.post(get_url('network/start'))
         .json()
         .then(res => spinner.succeed(res.response));
 
