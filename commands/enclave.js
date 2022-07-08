@@ -73,7 +73,7 @@ export async function deploy() {
             }).start()
         });
         
-        await got.post(get_url('network/start'))
+        await got.post(get_url('services/proxy'))
         .json()
         .then(res => spinner.succeed(res.response));
 
