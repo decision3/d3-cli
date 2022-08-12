@@ -14,8 +14,6 @@ The supported backends:
 - [ ] Azure confidential VMs
 - [ ] [Enarx](https://enarx.dev/)
 
----
-
 # Usage
 
 ```bash
