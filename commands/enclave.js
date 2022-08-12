@@ -12,7 +12,7 @@ const spinner_indent = 1;
 export async function configure(config) {
     try {
         var spinner = ora({
-            text: 'Configuring container',
+            text: 'Configuring safe',
             spinner: spinner_type,
             indent: spinner_indent
         }).start();
@@ -36,7 +36,7 @@ export async function deploy() {
     try {
         var image_endpoint = get_url('enclave/image');
         var spinner = ora({
-            text: 'Creating container',
+            text: 'Creating enclave',
             spinner: spinner_type,
             indent: spinner_indent
         }).start();
@@ -67,7 +67,7 @@ export async function deploy() {
         .then(res => spinner.succeed(res.response))
         .then(() => {
             spinner = ora({
-                text: 'Starting proxy',
+                text: 'Starting network interface',
                 spinner: spinner_type,
                 indent: spinner_indent
             }).start()
@@ -91,7 +91,7 @@ export async function ls() {
         .json()
         .then(res => {
             if(res.response != 'null') {
-                console.log("Enclave ID: ", res.response);
+                console.log("Safe ID: ", res.response);
             } else {
                 console.log("No enclave found");
             }
