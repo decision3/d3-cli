@@ -9,7 +9,7 @@ You can find more information [here](https://decision3.ai/documentation)
 `d3-cli` allows deploying code with no modifications and provides rich configurable network interfaces.
 
 The supported backends:
-- [x] AWS Nitro VM
+- [x] AWS Nitro VM (AWS host server code can be found [here](https://github.com/decision3/host-server))
 - [ ] GCP confidential VMs
 - [ ] Azure confidential VMs
 - [ ] [Enarx](https://enarx.dev/)
