@@ -4,7 +4,7 @@ You can find more information [here](https://decision3.ai/documentation)
 
 **Join our discord server:**
 
-[![](https://dcbadge.vercel.app/api/server/uKfGpum9nF?compact=true)](https://discord.gg/uKfGpum9nF){:target="_blank"}
+<a href="https://discord.gg/uKfGpum9nF" rel="nofollow" target="_blank"><img src="https://camo.githubusercontent.com/f80ab09187eede85143668a116974adcf208d81d83f83f0a2193ee76d37526f6/68747470733a2f2f646362616467652e76657263656c2e6170702f6170692f7365727665722f754b664770756d396e463f636f6d706163743d74727565" alt="" data-canonical-src="https://dcbadge.vercel.app/api/server/uKfGpum9nF?compact=true" style="max-width: 100%;"></a>
 
 `d3-cli` provides a fast and easy way to configure, deploy and manage `enclaves` across multiple cloud and on-premise infrastructure platforms. Secure enclaves (or just *enclaves*) are isolated containers which ensure data encryption and protection during execution. 
 
