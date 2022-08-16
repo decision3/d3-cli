@@ -2,6 +2,8 @@
 
 You can find more information [here](https://decision3.ai/documentation)
 
+Join our discord server: Discord server: https://discord.gg/uKfGpum9nF  
+
 `d3-cli` provides a fast and easy way to configure, deploy and manage `enclaves` across multiple cloud and on-premise infrastructure platforms. Secure enclaves (or just *enclaves*) are isolated containers which ensure data encryption and protection during execution. 
 
 `Enclaves` by default provide limited connectivity capabilities and require modifications in code in order to provide secure execution.  
@@ -11,10 +13,11 @@ You can find more information [here](https://decision3.ai/documentation)
 The supported backends:
 - [x] AWS Nitro VM (AWS host server code can be found [here](https://github.com/decision3/host-server))
 - [ ] GCP confidential VMs
-- [ ] Azure confidential VMs
 - [ ] [Enarx](https://enarx.dev/)
 
 # Usage
+
+After doing a `npm install -g`
 
 ```bash
 Usage: d3-cli [options] [commands]
