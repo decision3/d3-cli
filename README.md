@@ -17,6 +17,28 @@ The supported backends:
 - [ ] GCP confidential VMs
 - [ ] [Enarx](https://enarx.dev/)
 
+# Feature checklist (contributions welcome!)
+
+- [ ]  Attestation and communication
+    - [ ]  Attestation workflow
+    - [ ]  Attestation server
+    - [ ]  Socket API
+- [ ]  Data node
+    - [ ]  Encrypted database
+    - [ ]  KMS (based on attestation enclave)
+    - [ ]  Document DB connector (AWS)
+    - [ ]  S3 connector (AWS)
+    - [ ]  Mysql DB connector (AWS)
+- [ ]  Orchestration (dynamo)
+    - [ ]  Cluster configuration
+    - [ ]  Monitoring cluster
+    - [ ]  Replication
+    - [ ]  Cluster move
+- [ ]  Example use cases
+    - [ ]  HSM
+    - [ ]  AI modelling (Medical)
+    - [ ]  AI modelling (vision)
+
 # Usage
 
 After doing a `npm install -g`
