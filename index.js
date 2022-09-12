@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 import _yargs from 'yargs'
-import { configure, deploy, terminate, ls } from './commands/enclave.js'
+import { configure, deploy, terminate, ls, pcr } from './commands/enclave.js'
 import { hideBin } from 'yargs/helpers';
 import fs from "fs"
 import path from "path"
@@ -20,19 +20,25 @@ const argv = yargs
                 })
                 .option("d", {
                     alias:"deploy", 
-                    describe: "Deploy enclave", 
+                    describe: "Deploy oracle", 
                     type: "boolean", 
                     demandOption: false
                 })
                 .option("t", {
                     alias:"terminate", 
-                    describe: "Terminate enclave", 
+                    describe: "Terminate oracle", 
                     type: "boolean", 
                     demandOption: false
                 })
                 .option("l", {
                     alias:"list", 
-                    describe: "List enclave id", 
+                    describe: "List oracle id", 
+                    type: "boolean", 
+                    demandOption: false
+                })
+                .option("p", {
+                    alias:"pcr", 
+                    describe: "Get PCR information for oracle", 
                     type: "boolean", 
                     demandOption: false
                 })
@@ -60,4 +66,8 @@ if(argv.t){
 
 if(argv.l){
     ls();
+}
+
+if(argv.p){
+    pcr();
 }
